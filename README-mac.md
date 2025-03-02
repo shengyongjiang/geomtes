@@ -1,6 +1,6 @@
 # GeoMates Setup Guide for macOS
 
-This guide will help you set up and run the GeoMates environment on macOS.
+This guide is a amendement for readme.md, it will help you set up and run the GeoMates environment on macOS.
 
 ## Prerequisites
 
