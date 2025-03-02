@@ -8,6 +8,7 @@ This guide will help you set up and run the GeoMates environment on macOS.
 - Steel Bank Common Lisp (SBCL)
 - Python 3
 - Git
+- the readme under the geomates folder
 
 ## Installation Steps
 
@@ -22,7 +23,11 @@ brew install sbcl python
 
 # Install QuickLisp (Common Lisp package manager)
 curl -O https://beta.quicklisp.org/quicklisp.lisp
-sbcl --load quicklisp.lisp --eval '(quicklisp-quickstart:install)' --eval '(ql:add-to-init-file)' --eval '(quit)'
+sbcl --load quicklisp.lisp
+# In the SBCL prompt:
+(quicklisp-quickstart:install)
+(ql:add-to-init-file)
+(quit)
 ```
 
 ### 2. Clone the Repository
@@ -152,6 +157,20 @@ project_root/
     ├── act-r-experiment.lisp # Experiment interface
     ├── model-dummy.lisp      # Example agent model
     └── viewer.html           # Web interface
+```
+
+```
+┌─────────────────────────┐      ┌─────────────────────────┐
+│     Local Machine       │      │    Docker Container     │
+│                         │      │                         │
+│  ┌─────────────────┐    │      │  ┌─────────────────┐    │
+│  │     ACT-R       │    │      │  │    GeoMates     │    │
+│  │  Client Command │    │      │  │  Server Command │    │
+│  │                 │────┼──────┼──►                 │    │
+│  └─────────────────┘    │      │  └─────────────────┘    │
+│                         │      │                         │
+└─────────────────────────┘      └─────────────────────────┘
+        Port 45678 ◄─────────────────────► Port 45678
 ```
 
 ## Client-Server Architecture
